@@ -14,9 +14,11 @@ class Task(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100))
     status = db.Column(db.Enum(TaskStatus))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=True)
 
     def as_dict(self):
         return {'id': self.id,
                 'title': self.title,
                 'status': self.status,
+                'assignee': self.user.username if self.user else None,
                 }
