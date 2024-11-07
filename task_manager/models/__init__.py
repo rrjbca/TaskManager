@@ -1,3 +1,4 @@
 from .task import Task, TaskStatus
+from .user import User
 
-__all__ = ['Task', 'TaskStatus']
+__all__ = ['Task', 'TaskStatus', 'User']
